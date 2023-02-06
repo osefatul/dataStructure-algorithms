@@ -71,7 +71,7 @@ So the worst case time complexity is O(n)- Linear: which means as the size of in
 
 
 
-### Constant O(1)
+### O(1) - Constant
 
 The time complexity of below program is O(1) which only needs one step to execute, doesn't matter the input size. the time complexity is constant always.
 
@@ -82,7 +82,7 @@ function summation(n) {
 ```
 
 
-### Quadratic O(n^2) 
+### O(n^2) - Quadratic
 Most of the time when we have two nested loops, the time complexity is O(n^2).
 
 ```javascript
@@ -93,7 +93,7 @@ for (let i = 0; i< n.length; i++) {
 }
 ```
 
-### Cubic O(n^3)
+### O(n^3) - Cubic
 If there are three loops, the time complexity is cubic O(n^3);
 
 ```javascript
@@ -106,7 +106,7 @@ for (let i = 1; i< n; i++) {
 }
 ```
 
-### Logarithmic O(log n):
+### O(log n) - Logarithmic
 If input size reduces by half every iteration, then the time complexity is logarithmic.
 
 
@@ -171,4 +171,109 @@ function FS (n) {
 }
 
 console.log(FS(7))
+```
+Big-O = O(n)
+
+
+## Factorial of a number
+Give an integer n, find the factorial of that integer.
+
+```javascript
+function factorial (n) {
+    let result = 1;
+    for (let i = 1; i <= n; i++){
+        result *= i;
+    }
+    return result;
+}
+console.log(factorial(4))//24
+console.log(factorial(5))//120
+
+```
+
+Big-O = O(n)
+
+
+## Prime Number:
+Give an integer n, find if the number is Prime or not.
+
+A prime number is a natural number greater than 1 that is not a product of two smaller natural numbers.
+
+5 = true: 1*5 or 5*1
+4 = false: 1*4 or 2*2 or 1*5
+
+
+```javascript
+function prime (n) {
+    if (n <2){
+        return false;
+    }
+
+    for (let i = 2; i<n; i++){
+        if(n%i===0) return false
+    }
+    return true
+}
+
+console.log(prime(4))
+console.log(prime(5))
+```
+
+Big-O = O(n)
+
+#### Optimized Primality Test
+Integers larger than the square roo do not need to be checked because, whenever n= a*b , one of the two factors a and b is less than or equal to the square root of n.
+n = 24, a=4, b=6
+- The square root of 24 is 4.89: 4 is less than 4.89. So, `a` is less than the square root of n.
+
+n=35 -> a=5, b=7
+- The square root of 35 is 5.91: 5 is less than 5.91. So, `a` is less than the square root of n.
+
+```javascript
+function prime (n) {
+    if (n <2){
+        return false;
+    }
+
+    for (let i = 2; i<=Math.sqrt(n); i++){
+        if(n%i===0) return false
+    }
+    return true
+}
+
+console.log(prime(4))
+console.log(prime(5))
+```
+
+The number of N increases the number time complexity also increases but the same proportion as in the first solution.
+
+As we only go through Sqrt(n) times in the loop: **Big-0 = O(sqrt(n))**
+
+
+## Power of Two
+Give a positive integer n, find if the number is a power of 2 or not.
+1= 2^0;
+2= 2^1;
+5= false
+
+```javascript
+//solution1
+function power (n) {
+    return Number.isInteger(Math.log2(n))
+}
+console.log(power(4))
+//Big-0 = O(1)
+
+
+
+//Solution2
+const power2 = (n) =>{
+    let number = n;
+    while(number > 1){
+        number = number/2;
+    }
+    return number ===1 ? true: false
+}
+console.log(power(5))
+//Big-0 = 0(log n)
 ```
