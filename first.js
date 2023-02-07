@@ -109,3 +109,30 @@ const power2 = (n) =>{
 console.log(power2(7))
 
 
+
+
+
+
+//Recursive Fibonacci
+function fibSequence (n) {
+    if(n <2 ) return n
+    console.count("req")
+    return fibSequence(n-1) + fibSequence(n-2)
+}
+
+console.log(fibSequence(4))//3
+console.log(fibSequence(5))//5
+console.log(fibSequence(7))//13
+
+
+
+
+
+//Recursive Factorial
+
+function recursiveFactorial (n){
+    if (n === 0) return 1;
+    return  n * recursiveFactorial(n-1);
+}
+
+console.log(recursiveFactorial(5))

@@ -277,3 +277,53 @@ const power2 = (n) =>{
 console.log(power(5))
 //Big-0 = 0(log n)
 ```
+
+
+
+
+## Recursion
+![Recursion](./assets/recursion.jpg)
+
+
+### Recursive Fibonacci Sequence
+give a number n, find the nth element of the fibonacci sequence.
+
+the first two elements of the fibonacci sequence are 0 and 1. (0,1,1,2,3,5,8)
+
+- recursiveFibonacci(0) = 0
+- recursiveFibonacci(1) = 1
+- recursiveFibonacci(6) = 8
+
+
+```javascript
+function recursiveFibSec(n){
+    if (n<2) return n;
+    return recursiveFibSec(n-1) + recursiveFibSec(n-2)
+}
+console.log(recursiveFibSec(6)) //8
+```
+
+#### Time complexity for recursive Fibonacci Sequence:
+
+Big-O = O(2^n)
+
+![recursiveFibonacci](./assets/timeComplexityForRecursiveFib.jpg)
+
+
+
+### Recursive Factorial of a number
+Give an integer n, find the factorial of that integer.
+
+```javascript
+function recursiveFactorial (n){
+    if (n === 0) return 1;
+    return  n * recursiveFactorial(n-1);
+}
+
+console.log(recursiveFactorial(5))
+```
+
+Big-O = O(n)
+
+
+## Search Algorithms
