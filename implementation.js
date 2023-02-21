@@ -336,29 +336,39 @@ towerOfHanoi(4, 'A', 'C', 'B')
 
 function euclideanGCD(a, b){
     let remainder;
-
+    // let GCD;
+    if(a/b ===0) return a;
     if(a > b){
-        console.log(`this is ${a} and this is ${b}`);
         remainder= a%b
-
-        if(remainder === 0) return a
+        console.log(`this is ${a} and this is ${b} and remainder is ${remainder}`);
+        if(remainder === 0) {
+            // GCD = a;
+            return a
+        }
         if(remainder > b){
             euclideanGCD(remainder, b)
-        }else if(remainder > 0){
+        }else if(b > remainder && remainder > 0 ){
             euclideanGCD(b, remainder)
+        }else{
+            GCD = a;
+            return a
         }
     }
     else{
-        console.log(`this is ${b} and this is ${a}`);
         remainder= b%a;
+        console.log(`this is ${b} and this is ${a} and remainder is ${remainder}`);
         if(remainder === 0) return b
 
         if(remainder > a){
             euclideanGCD(remainder, a)
-        }else{
+        }else if(a> remainder && remainder > 0){
             euclideanGCD(a, remainder)
+        }else{
+            // GCD = b;
+            return b
         }
     }
+    // return GCD;
 }
 
 console.log(euclideanGCD(30,18))

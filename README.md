@@ -627,3 +627,22 @@ The Euclidean algorithm is a simple and efficient method for finding the greates
 - Step 3: Replace the larger number with the remainder, and repeat step 2 with the new numbers. For example, replace 30 with 18, and replace 18 with 12. Divide 18 by 12 to get a quotient of 1 and a remainder of 6.
 
 - Step 4: Continue this process until the remainder is zero. The GCD is the last non-zero remainder. For example, divide 12 by 6 to get a quotient of 2 and a remainder of 0. Therefore, the GCD of 30 and 18 is 6.
+
+```javascript
+function euclideanGCD(a, b){
+    //Ensure a >= b
+    if (a < b) {
+    [a, b] = [b, a];
+    }
+
+    while (b > 0) {
+    let temp = b;
+    b = a % b;
+    a = temp;
+    }
+
+    return a;
+}
+
+console.log(euclideanGCD(30,18))
+```
