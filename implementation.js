@@ -280,9 +280,7 @@ let arr5 = [5,4,2,-2]
 console.log(mergeSort(arr5))
 
 
-const a= [5,4,2,-2]
-const b= a.shift()
-console.log(b)
+
 
 
 //CartesianProduct
@@ -295,5 +293,40 @@ function cartesianProduct (a, b) {
     }
     return result
 }
-
 console.log(cartesianProduct([2,3,4], [2,3]))
+
+
+
+
+
+//ClimbingStairs.
+function climbingStairsCase (n){
+    const noOfWays = [1,2]; 
+
+    //for more than two stairs
+    for(let i=2; i<=n; i++){
+        noOfWays[i] = noOfWays[i-1] + noOfWays[i-2];
+    }
+    return noOfWays[n-1]
+}
+
+console.log(climbingStairsCase(2))
+console.log(climbingStairsCase(3))
+console.log(climbingStairsCase(5))
+
+
+
+
+//Tower of hanoi:
+
+function towerOfHanoi(n, fromRod, toRod, usingRod){
+    if(n===1){
+        console.log(`Move desk 1 from ${fromRod} to ${toRod}`);
+        return;
+    }
+
+    towerOfHanoi(n-1, fromRod, usingRod, toRod);
+    console.log(`Move desk ${n} from ${fromRod} to ${toRod}`);
+    towerOfHanoi(n-1, usingRod, toRod, fromRod)
+}
+towerOfHanoi(4, 'A', 'C', 'B')

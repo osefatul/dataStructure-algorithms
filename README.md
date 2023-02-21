@@ -553,4 +553,65 @@ console.log(cartesianProduct([2,3,4], [2,3]))
 
 ## Climbing Staircase
 ![](./assets/climbingStaircase.jpg)
+
+![](./assets/climbingStaircaseIdea.jpg)
+
+### Implementation:
+- `n`: The number of steps in the staircase.
+- Constraints: Then number of take one step is `1` and the number of take two step is `2`. So, [1, 2].
+
+```javascript
+function climbingStaircase (n){
+    const noOfWays = [1,2];
+    for(let i =2; i <= n; i++){
+        noOfWays[i] = noOfWays[i-1] + noOfWays[i-2]
+    }
+    return noOfWays[n-1]
+}
+```
+Time Complexity: O(n)
+
 ## Tower of Hanoi
+![](./assets/towerOfHanoi.jpg)
+
+![](./assets/towerOfHanoiExample.jpg)
+
+
+![](./assets/towerOfHanoiExample2.jpg)
+
+### Implementation:
+
+```javascript
+function towerOfHanoi(n, fromRod, toRod, usingRod){
+    if(n===1){
+        console.log(`Move desk 1 from ${fromRod} to ${toRod}`);
+        return;
+    }
+
+    towerOfHanoi(n-1, fromRod, usingRod, toRod);
+    console.log(`Move desk ${n} from ${fromRod} to ${toRod}`);
+    towerOfHanoi(n-1, usingRod, toRod, fromRod)
+}
+towerOfHanoi(3, 'A', 'C', 'B')
+```
+
+TimeComplexity: O(2^n);
+
+# Algorithm Design Techniques:
+
+Algorithms are sets of instructions that are designed to solve specific problems or perform specific tasks. There are several techniques used in algorithm design, each with its strengths and weaknesses. Here are some of the most commonly used algorithm design techniques:
+
+- Brute force: This technique involves trying every possible solution to a problem until the correct one is found. While brute force algorithms are often slow and inefficient, they can be useful for small problems or for verifying the correctness of other algorithms. Ex: Linear Search
+
+- Divide and conquer: This technique involves breaking a problem into smaller sub-problems and solving each sub-problem separately. The solutions to the sub-problems are then combined to produce a solution to the original problem. Divide and conquer algorithms are often faster than brute force algorithms, but they can be more difficult to design. Ex: Binary Search, Quick Sort, Merge Sort and Tower of Hanoi.
+
+- Dynamic programming: This technique involves breaking a problem into smaller sub-problems and solving each sub-problem only once, storing the solution in memory for future reference. Dynamic programming can be more efficient than brute force or divide and conquer algorithms for certain types of problems. Ex: Fibonacci numbers and climbing staircase. 
+
+- Greedy algorithms: This technique involves making the locally optimal choice at each step in the algorithm, with the hope that the globally optimal solution will be reached. Greedy algorithms are often fast and easy to implement, but they can sometimes produce suboptimal solutions. Ex: Dijkstra's algorithm, Prim's algorithm and Kruskal's algorithm.
+
+
+- Backtracking: This technique involves searching through all possible solutions to a problem, but stopping the search as soon as a solution is found. Backtracking algorithms are often used for problems that have a large number of possible solutions. N-Queens problem.
+
+- Randomized algorithms: This technique involves using randomization to generate a solution to a problem. Randomized algorithms can be useful when the problem is too complex to solve using other techniques or when an approximate solution is acceptable.
+
+Each algorithm design technique has its own advantages and disadvantages, and the choice of technique will depend on the specific problem being solved and the resources available.
