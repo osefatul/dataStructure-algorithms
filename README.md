@@ -64,7 +64,7 @@ Given the input n=4, let's count the number of times each statement executes.
 
 Total count is `n+2` and **our time complexity is dependent on input size**
 
-So the worst case time complexity is O(n)- Linear: which means as the size of input increases the time complexity (steps to execute also increases.
+So the worst case time complexity is O(n)- Linear: which means as the size of input increases the time complexity (steps to execute also increases.)
 
 - Most of the time if you see a loop in out program, we can safely say that the time complexity is linear.
 
@@ -149,7 +149,7 @@ an Array is on ordered collection of values.
 - forEach/map/filter/reduce: O(n)
 
 
-## Math Algorithms:
+# Math Algorithms:
 ## Fibonacci Sequence
 Give a number n, find the first n elements of the fibonacci sequence.
 
@@ -199,8 +199,8 @@ Give an integer n, find if the number is Prime or not.
 
 A prime number is a natural number greater than 1 that is not a product of two smaller natural numbers.
 
-5 = true: 1*5 or 5*1
-4 = false: 1*4 or 2*2 or 1*5
+- 5 = true: 1 X 5 or 5 X 1
+- 4 = false: 1 X 4 or 2 X 2 or 4X1
 
 
 ```javascript
@@ -222,7 +222,7 @@ console.log(prime(5))
 Big-O = O(n)
 
 #### Optimized Primality Test
-Integers larger than the square roo do not need to be checked because, whenever n= a*b , one of the two factors a and b is less than or equal to the square root of n.
+Integers larger than the square root do not need to be checked because, whenever n= a*b , one of the two factors a and b is less than or equal to the square root of n.
 n = 24, a=4, b=6
 - The square root of 24 is 4.89: 4 is less than 4.89. So, `a` is less than the square root of n.
 
@@ -262,7 +262,7 @@ function power (n) {
     return Number.isInteger(Math.log2(n))
 }
 console.log(power(4))
-//Big-0 = O(1)
+//Big-0 = 0(log n)
 
 
 
@@ -326,4 +326,231 @@ console.log(recursiveFactorial(5))
 Big-O = O(n)
 
 
-## Search Algorithms
+# Search Algorithms
+## 1. Linear search
+### Problem:
+Given an array of `n` elements and a target element `t`. find the index of the target element. Return -1 if the target element is not found.
+
+- n=[-5,2,10,4,6]
+- t=10
+
+```javascript
+//First Solution:
+function linearSearch (n, t){
+    if(n.includes(t)) {
+        return n.findIndex(el => el === t)
+    }
+    return -1
+}
+
+//Second Solution:
+function linearSearch (n, t){
+    for(let i = 0; i < n.length; i++){
+        if(n[i] === t) return i
+    }
+    return -1
+}
+console.log(linearSearch([-5,2,10,4,6],10)) //2
+console.log(linearSearch([-5,2,10,4,6],6)) //4
+console.log(linearSearch([-5,2,10,4,6],20)) // -1
+```
+
+## 2. Binary search
+Binary search works only on sorted arrays.
+### Problem:
+Given a sorted array of `n` elements and a target element `t`, find the index of the target element.
+
+
+```javascript
+function binarySearch (n,t){
+    let leftIndex = 0;
+    let rightIndex = n.length - 1;
+
+    while (leftIndex <= rightIndex) {
+        let middleIndex = Math.floor((leftIndex + rightIndex)/2);
+        if(t === n[middleIndex]) {
+            return middleIndex;
+        }
+        if(t < n[middleIndex]) {
+            rightIndex = middleIndex -1;
+        }else{
+            leftIndex = middleIndex + 1;
+        }
+    }
+    return -1;
+}
+console.log(binarySearch([2,4,7,9,15,18], 20))//-1
+console.log(binarySearch([2,4,7,9,15,18], 9)) //3
+```
+
+Big-O : O(log(n)): 
+
+
+## 3. Recursive Binary search
+```javascript
+function binarySearch (n,t){
+    return search (n, t, 0, n.length - 1)
+}
+
+function search(arr, target, leftIndex, rightIndex){
+    if(leftIndex > rightIndex) return -1;
+
+    let middleIndex = Math.floor((leftIndex + rightIndex)/2);
+    if(target === arr[middleIndex]) return middleIndex
+
+    if(target< arr[middleIndex]) {
+        return search(arr, target, leftIndex, middleIndex -1 )
+    } else{
+        return search(arr, target, middleIndex+1, rightIndex)
+    }
+}
+console.log(binarySearch([2,4,7,9,15,18], 10))//-1
+console.log(binarySearch([2,4,7,9,15,18], 15))//4
+```
+
+Big-0: O(log(n))
+
+
+# Sorting Algorithms
+## Bubble Sort:
+Compare adjacent elements in the array and swap the positions if they are not in the intended order.
+Repeat the instructions as you step through each element in the array. Once you step through the whole array with no swaps, the array is sorted.
+
+```javascript
+function bubbleSort (arr){
+    let swapped;
+    do {
+        swapped = false;
+        for (let i = 0; i < arr.length-1; i++) {
+            if(arr[i]> arr[i+1]){
+                let temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+i]= temp;
+                swapped = true
+            }
+        }
+    } while (swapped);
+}
+const arr = [5,4,2,-2]
+bubbleSort(arr)
+console.log(arr)
+```
+Big-O: We are using two loops, (for loops and do-while loops), so the Big-O is O(n^2)
+
+## Insertion Sort:
+- Virtually split the array into a sorted and unsorted part.
+- Assume that the first element is already sorted and remaining elements are unsorted.
+- Select an unsorted element and compare with all elements in the sorted part. 
+- If the elements in the sorted part is smaller than the selected element, proceed to the next element in the unsorted part. Else, shift larger elements in the sorted part towards the right.
+- insert the selected element at the right index. z
+- repeat till the unsorted elements are placed in the right order.
+![](./assets/insertedSort.jpg)
+
+```javascript
+//InsertionSort:
+function insertionSort (arr){
+    for (let i = 1; i< arr.length; i++){
+        let position = i;
+        let tempValue = arr [position]
+        while (position > 0 && arr[position -1] > tempValue){
+            arr[position] = arr[position -1];
+            position = position -1;
+        }
+        arr[position] = tempValue;
+    }
+}
+const arr2 = [5,4,2,-2]
+insertionSort(arr2)
+console.log(arr2)
+```
+WorstCaseScenario: as we have two loops in insertion: Big-0 = O(n^2)
+
+## Quick Sort:
+- Identify the pivot element in the array:
+    - Pick the first element as the pivot.
+    - Pick the last element as the pivot (our approach).
+    - Pick a random element as the pivot.
+    - Pick median as pivot.
+- Put everything that is smaller than the pivot into a `left` array and everything that's greater than the pivot into a `right` array.
+- Repeat the process for the individual `left` and `right` arrays till you have an array of length `1` which is sorted by definition.
+- Repeatedly concatenate the left array, pivot and right array till one sorted array remains.
+
+
+![](./assets/quickSort.jpg)
+
+```javascript
+function quickSort (arr) {
+    if(arr.length<2) return arr
+    
+    let pivot = arr[arr.length - 1];
+    let left = [];
+    let right = [];
+
+    for (let i=0; i<arr.length-1; i++){
+        arr[i] < pivot?
+        left.push(arr[i]):
+        right.push(arr[i])
+    }
+    return [...quickSort(left), pivot, ...quickSort(right)]
+}
+
+let arr23 = [5,4,2,-2]
+console.log(quickSort(arr23))
+```
+- WorstCaseScenario: O(n^2)
+- AverageScenario: O(n log n)
+
+
+## Merge Sort:
+- Divide the array into sub arrays, each containing only one element (An array with one element is considered sorted).
+- Repeatedly merge the sub arrays to produce new sorted sub arrays until there is only one sub array remaining. That will be the sorted array.
+
+![](./assets/mergeSort.jpg)
+
+```javascript
+function mergeSort (arr) {
+    if(arr.length < 2) return arr
+
+    const mid = Math.floor(arr.length / 2)
+    const leftArray = arr.slice(0,mid);
+    const rightArray = arr.slice(mid);
+    return merge(mergeSort(leftArray), mergeSort(rightArray))
+}
+
+function merge (leftArray, rightArray) {
+    const sortedArray = [];
+    while(leftArray.length && rightArray.length) {
+        if(leftArray[0] <= rightArray[0]){
+            sortedArray.push(leftArray.shift())
+        }else{
+            sortedArray.push(rightArray.shift())
+        }
+    }
+    return [...sortedArray, ...leftArray, ...rightArray]
+}
+let arr5 = [5,4,2,-2]
+console.log(mergeSort(arr5))
+```
+
+**WorstCaseScenario**: O(n log n). and this is the best sort complexity we can get when sorting.
+
+# Miscellaneous Problems
+## Cartesian Product
+![](./assets/cartesianProduct.jpg)
+
+```javascript
+function cartesianProduct (a, b) {
+    const result =[]
+    for (i in a ) {
+        for (j in b ) {
+            result.push(a[i]*b[j])
+        }
+    }
+    return result
+}
+console.log(cartesianProduct([2,3,4], [2,3]))
+```
+
+## Climbing Staircase
+![](./assets/climbingStaircase.jpg)
+## Tower of Hanoi
