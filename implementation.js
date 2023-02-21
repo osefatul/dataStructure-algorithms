@@ -318,7 +318,6 @@ console.log(climbingStairsCase(5))
 
 
 //Tower of hanoi:
-
 function towerOfHanoi(n, fromRod, toRod, usingRod){
     if(n===1){
         console.log(`Move desk 1 from ${fromRod} to ${toRod}`);
@@ -330,3 +329,36 @@ function towerOfHanoi(n, fromRod, toRod, usingRod){
     towerOfHanoi(n-1, usingRod, toRod, fromRod)
 }
 towerOfHanoi(4, 'A', 'C', 'B')
+
+
+
+//Euclidean algo:
+
+function euclideanGCD(a, b){
+    let remainder;
+
+    if(a > b){
+        console.log(`this is ${a} and this is ${b}`);
+        remainder= a%b
+
+        if(remainder === 0) return a
+        if(remainder > b){
+            euclideanGCD(remainder, b)
+        }else if(remainder > 0){
+            euclideanGCD(b, remainder)
+        }
+    }
+    else{
+        console.log(`this is ${b} and this is ${a}`);
+        remainder= b%a;
+        if(remainder === 0) return b
+
+        if(remainder > a){
+            euclideanGCD(remainder, a)
+        }else{
+            euclideanGCD(a, remainder)
+        }
+    }
+}
+
+console.log(euclideanGCD(30,18))

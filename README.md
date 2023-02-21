@@ -615,3 +615,15 @@ Algorithms are sets of instructions that are designed to solve specific problems
 - Randomized algorithms: This technique involves using randomization to generate a solution to a problem. Randomized algorithms can be useful when the problem is too complex to solve using other techniques or when an approximate solution is acceptable.
 
 Each algorithm design technique has its own advantages and disadvantages, and the choice of technique will depend on the specific problem being solved and the resources available.
+
+
+# Euclidean algorithm
+The Euclidean algorithm is a simple and efficient method for finding the greatest common divisor (GCD) of two numbers. Here is how to use the Euclidean algorithm to find the GCD of two numbers:
+
+- Step 1: Take the two numbers for which you want to find the GCD.
+
+- Step 2: Divide the larger number by the smaller number, and write down the quotient and remainder. For example, if the numbers are 30 and 18, divide 30 by 18 to get a quotient of 1 and a remainder of 12.
+
+- Step 3: Replace the larger number with the remainder, and repeat step 2 with the new numbers. For example, replace 30 with 18, and replace 18 with 12. Divide 18 by 12 to get a quotient of 1 and a remainder of 6.
+
+- Step 4: Continue this process until the remainder is zero. The GCD is the last non-zero remainder. For example, divide 12 by 6 to get a quotient of 2 and a remainder of 0. Therefore, the GCD of 30 and 18 is 6.
