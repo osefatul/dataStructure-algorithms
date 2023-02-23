@@ -216,6 +216,7 @@ console.log(arr)
 
 
 
+
 //InsertionSort:
 function insertionSort (arr){
     for (let i = 1; i< arr.length; i++){
@@ -231,6 +232,7 @@ function insertionSort (arr){
 const arr2 = [5,4,2,-2]
 insertionSort(arr2)
 console.log(arr2)
+
 
 
 //QuickSort:
@@ -254,8 +256,9 @@ console.log(quickSort(arr23))
 
 
 
-//MergeSort:
 
+
+//MergeSort:
 function mergeSort (arr) {
     if(arr.length < 2) return arr
 
@@ -333,7 +336,6 @@ towerOfHanoi(4, 'A', 'C', 'B')
 
 
 //Euclidean algo:
-
 function euclideanGCD(a, b){
     let remainder;
     // let GCD;
@@ -370,5 +372,38 @@ function euclideanGCD(a, b){
     }
     // return GCD;
 }
-
 console.log(euclideanGCD(30,18))
+
+
+
+
+
+//intersection
+function intersection(first_array, second_array){
+    var result = [];
+    for (var i = 0; i < first_array.length; i++) {
+        for (var j = 0; j < second_array.length; j++) {
+            if (first_array[i] == second_array[j]) {
+            console.count("count")
+            result.push(first_array[i]);
+            break;
+            }
+        }
+    }
+    return result;
+}
+
+console.log(intersection([1,2,3,4], [4,3,6,5]))
+
+
+
+
+
+let table = [];
+for (let i = 0; i <= 5; i++) {
+    table[i] = [];
+    for (let j = 0; j <= 9; j++) {
+        table[i][j] = 0;
+    }
+}
+console.log(table)

@@ -646,3 +646,27 @@ function euclideanGCD(a, b){
 
 console.log(euclideanGCD(30,18))
 ```
+
+
+# Finding Permutations and combinations of a list of numbers
+# Finding The Longest common substring in a given string.
+
+# Knapsack problem
+The Knapsack problem is a classic optimization problem in computer science and mathematics, which involves finding the most valuable combination of items that can fit into a knapsack (a container with a limited capacity).
+
+Formally, the problem can be stated as follows: Given a set of items, each with a weight and a value, and a knapsack with a limited capacity, the task is to select a subset of items that can fit into the knapsack and maximize the total value of the selected items.
+
+The problem is considered to be NP-hard, which means that there is no known algorithm that can solve it optimally in polynomial time for all possible inputs. However, there are various approximate algorithms and heuristics that can provide good solutions in practice. The Knapsack problem has applications in many areas, such as operations research, finance, and resource allocation.
+
+A practical example of the Knapsack problem could be a scenario where a hiker is planning to go on a trip and has a limited capacity backpack. The hiker wants to maximize the total value of items they can bring while staying within the weight limit of their backpack.
+
+Suppose the hiker has a backpack with a weight capacity of 10 pounds and a set of items to choose from, each with a weight and a value:
+
+Water bottle: 1 pound, $5 value
+Tent: 6 pounds, $30 value
+Sleeping bag: 4 pounds, $20 value
+First aid kit: 0.5 pounds, $15 value
+Food supplies: 5 pounds, $25 value
+The Knapsack problem in this scenario would be to select a subset of items that can fit into the backpack and maximize the total value of the selected items.
+
+One possible solution would be to select the water bottle, tent, and first aid kit, with a total weight of 7.5 pounds and a total value of $50. This solution is feasible since it fits within the weight limit of the backpack, and it is optimal since it maximizes the total value of the selected items.
