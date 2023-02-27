@@ -1,4 +1,4 @@
-## Algorithms
+# Algorithms
 
 ## Evaluate Performance of Algorithms
 we evaluate the performance of an algorithm **in terms of its input size**
@@ -149,8 +149,8 @@ an Array is on ordered collection of values.
 - forEach/map/filter/reduce: O(n)
 
 
-# Math Algorithms:
-## Fibonacci Sequence
+## Math Algorithms:
+### Fibonacci Sequence
 Give a number n, find the first n elements of the fibonacci sequence.
 
 In mathematics, Fibonacci sequences is a sequence  in which each number is the sum of the two preceding ones.
@@ -175,7 +175,7 @@ console.log(FS(7))
 Big-O = O(n)
 
 
-## Factorial of a number
+### Factorial of a number
 Give an integer n, find the factorial of that integer.
 
 ```javascript
@@ -194,7 +194,7 @@ console.log(factorial(5))//120
 Big-O = O(n)
 
 
-## Prime Number:
+### Prime Number:
 Give an integer n, find if the number is Prime or not.
 
 A prime number is a natural number greater than 1 that is not a product of two smaller natural numbers.
@@ -250,7 +250,7 @@ The number of N increases the number time complexity also increases but the same
 As we only go through Sqrt(n) times in the loop: **Big-0 = O(sqrt(n))**
 
 
-## Power of Two
+### Power of Two
 Give a positive integer n, find if the number is a power of 2 or not.
 1= 2^0;
 2= 2^1;
@@ -326,9 +326,9 @@ console.log(recursiveFactorial(5))
 Big-O = O(n)
 
 
-# Search Algorithms
-## 1. Linear search
-### Problem:
+## Search Algorithms
+### 1. Linear search
+#### Problem:
 Given an array of `n` elements and a target element `t`. find the index of the target element. Return -1 if the target element is not found.
 
 - n=[-5,2,10,4,6]
@@ -355,9 +355,9 @@ console.log(linearSearch([-5,2,10,4,6],6)) //4
 console.log(linearSearch([-5,2,10,4,6],20)) // -1
 ```
 
-## 2. Binary search
+### 2. Binary search
 Binary search works only on sorted arrays.
-### Problem:
+#### Problem:
 Given a sorted array of `n` elements and a target element `t`, find the index of the target element.
 
 
@@ -386,7 +386,7 @@ console.log(binarySearch([2,4,7,9,15,18], 9)) //3
 Big-O : O(log(n)): 
 
 
-## 3. Recursive Binary search
+### 3. Recursive Binary search
 ```javascript
 function binarySearch (n,t){
     return search (n, t, 0, n.length - 1)
@@ -411,8 +411,8 @@ console.log(binarySearch([2,4,7,9,15,18], 15))//4
 Big-0: O(log(n))
 
 
-# Sorting Algorithms
-## Bubble Sort:
+## Sorting Algorithms
+### Bubble Sort:
 Compare adjacent elements in the array and swap the positions if they are not in the intended order.
 Repeat the instructions as you step through each element in the array. Once you step through the whole array with no swaps, the array is sorted.
 
@@ -437,7 +437,7 @@ console.log(arr)
 ```
 Big-O: We are using two loops, (for loops and do-while loops), so the Big-O is O(n^2)
 
-## Insertion Sort:
+### Insertion Sort:
 - Virtually split the array into a sorted and unsorted part.
 - Assume that the first element is already sorted and remaining elements are unsorted.
 - Select an unsorted element and compare with all elements in the sorted part. 
@@ -465,7 +465,7 @@ console.log(arr2)
 ```
 WorstCaseScenario: as we have two loops in insertion: Big-0 = O(n^2)
 
-## Quick Sort:
+### Quick Sort:
 - Identify the pivot element in the array:
     - Pick the first element as the pivot.
     - Pick the last element as the pivot (our approach).
@@ -501,7 +501,7 @@ console.log(quickSort(arr23))
 - AverageScenario: O(n log n)
 
 
-## Merge Sort:
+### Merge Sort:
 - Divide the array into sub arrays, each containing only one element (An array with one element is considered sorted).
 - Repeatedly merge the sub arrays to produce new sorted sub arrays until there is only one sub array remaining. That will be the sorted array.
 
@@ -534,8 +534,8 @@ console.log(mergeSort(arr5))
 
 **WorstCaseScenario**: O(n log n). and this is the best sort complexity we can get when sorting.
 
-# Miscellaneous Problems
-## Cartesian Product
+## Miscellaneous Problems
+### Cartesian Product
 ![](./assets/cartesianProduct.jpg)
 
 ```javascript
@@ -551,12 +551,12 @@ function cartesianProduct (a, b) {
 console.log(cartesianProduct([2,3,4], [2,3]))
 ```
 
-## Climbing Staircase
+### Climbing Staircase
 ![](./assets/climbingStaircase.jpg)
 
 ![](./assets/climbingStaircaseIdea.jpg)
 
-### Implementation:
+#### Implementation:
 - `n`: The number of steps in the staircase.
 - Constraints: Then number of take one step is `1` and the number of take two step is `2`. So, [1, 2].
 
@@ -571,7 +571,7 @@ function climbingStaircase (n){
 ```
 Time Complexity: O(n)
 
-## Tower of Hanoi
+### Tower of Hanoi
 ![](./assets/towerOfHanoi.jpg)
 
 ![](./assets/towerOfHanoiExample.jpg)
@@ -579,7 +579,7 @@ Time Complexity: O(n)
 
 ![](./assets/towerOfHanoiExample2.jpg)
 
-### Implementation:
+#### Implementation:
 
 ```javascript
 function towerOfHanoi(n, fromRod, toRod, usingRod){
@@ -597,7 +597,7 @@ towerOfHanoi(3, 'A', 'C', 'B')
 
 TimeComplexity: O(2^n);
 
-# Algorithm Design Techniques:
+## Algorithm Design Techniques:
 
 Algorithms are sets of instructions that are designed to solve specific problems or perform specific tasks. There are several techniques used in algorithm design, each with its strengths and weaknesses. Here are some of the most commonly used algorithm design techniques:
 
@@ -617,7 +617,7 @@ Algorithms are sets of instructions that are designed to solve specific problems
 Each algorithm design technique has its own advantages and disadvantages, and the choice of technique will depend on the specific problem being solved and the resources available.
 
 
-# Euclidean algorithm
+## Euclidean algorithm
 The Euclidean algorithm is a simple and efficient method for finding the greatest common divisor (GCD) of two numbers. Here is how to use the Euclidean algorithm to find the GCD of two numbers:
 
 - Step 1: Take the two numbers for which you want to find the GCD.
@@ -648,10 +648,10 @@ console.log(euclideanGCD(30,18))
 ```
 
 
-# Finding Permutations and combinations of a list of numbers
-# Finding The Longest common substring in a given string.
+## Finding Permutations and combinations of a list of numbers
+## Finding The Longest common substring in a given string.
 
-# Knapsack problem
+## Knapsack problem
 The Knapsack problem is a classic optimization problem in computer science and mathematics, which involves finding the most valuable combination of items that can fit into a knapsack (a container with a limited capacity).
 
 Formally, the problem can be stated as follows: Given a set of items, each with a weight and a value, and a knapsack with a limited capacity, the task is to select a subset of items that can fit into the knapsack and maximize the total value of the selected items.
@@ -670,3 +670,7 @@ Food supplies: 5 pounds, $25 value
 The Knapsack problem in this scenario would be to select a subset of items that can fit into the backpack and maximize the total value of the selected items.
 
 One possible solution would be to select the water bottle, tent, and first aid kit, with a total weight of 7.5 pounds and a total value of $50. This solution is feasible since it fits within the weight limit of the backpack, and it is optimal since it maximizes the total value of the selected items.
+
+
+
+# Data Structure
